@@ -7,7 +7,7 @@ const AddButton: FC = () => {
   return (
     <TouchableOpacity
      style={styles.container} 
-      onPress={() => router.navigate('/adddata')}
+      onPress={() => router.navigate('/addata')}
     >
       <AntDesign name="plus" size={24} color="#fff" />
     </TouchableOpacity>
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
           },
           shadowRadius:2,
           shadowOpacity:0.7,
-          borderRadius:24
+          borderRadius:24,
+          
         }
      
 })

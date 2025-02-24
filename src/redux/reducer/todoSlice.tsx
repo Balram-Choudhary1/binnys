@@ -1,36 +1,36 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Zoo {
+interface Todo {
   id: number;
   title: string;
   desc: string;
-  breed: string;
-  image: string;
+  dueDate: string;
+  
 }
 
-interface ZooState {
-  data: Zoo[];
+interface TodoState {
+  data: Todo[];
 }
 
-const initialState: ZooState = {
+const initialState: TodoState = {
   data: [],
 };
 
-export const zooSlice = createSlice({
-  name: "zoo",
+export const todoSlice = createSlice({
+  name: "todo",
   initialState,
   reducers: {
-    addZoo: (state, action: PayloadAction<Omit<Zoo, "id">>) => {
-      const zooData: Zoo = {
-        id: state.data.length + 1,
+    addTodo: (state, action: PayloadAction<Omit<Todo, "id">>) => {
+      const todoData: Todo = {
+        id: state.data?.length + 1,
         ...action.payload,
       };
-      state.data = [zooData, ...state.data];
+      state.data = [todoData, ...state?.data];
     },
-    deleteZoo: (state, action: PayloadAction<{ id: number }>) => {
+    deleteTodo: (state, action: PayloadAction<{ id: number }>) => {
       state.data = state.data.filter((i) => i.id !== action.payload.id);
     },
-    updateZoo: (state, action: PayloadAction<Zoo>) => {
+    updateTodo: (state, action: PayloadAction<Todo>) => {
       const index = state.data.findIndex((i) => i.id === action.payload.id);
       if (index !== -1) {
         state.data[index] = { ...state.data[index], ...action.payload };
@@ -39,5 +39,5 @@ export const zooSlice = createSlice({
   },
 });
 
-export const { addZoo, deleteZoo, updateZoo } = zooSlice.actions;
-export default zooSlice.reducer;
+export const { addTodo, deleteTodo, updateTodo } = todoSlice.actions;
+export default todoSlice.reducer;

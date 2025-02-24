@@ -40,8 +40,9 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    left: -28,
-    top: 25,
+    left: -24,
+    top: -14,
+
   },
 });
 
