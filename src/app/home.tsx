@@ -20,7 +20,7 @@ const Home:FC = () => {
   return (
     <View style={styles.container}>
       <CustomHeader title="Binny's Jewellery "/>
-
+      <View><Text>Serch data</Text></View>
       <FlatList 
        data={data}
        renderItem={renderTodoItem}
