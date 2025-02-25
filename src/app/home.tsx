@@ -1,4 +1,4 @@
-import { View, Text ,StyleSheet, SafeAreaView, FlatList,Image} from 'react-native'
+import { View, Text ,StyleSheet, SafeAreaView, FlatList,Image, TextInput} from 'react-native'
 import { useSelector } from 'react-redux'
 import React, { FC } from 'react'
 import CustomHeader from '../components/CustomHeader'
@@ -20,7 +20,10 @@ const Home:FC = () => {
   return (
     <View style={styles.container}>
       <CustomHeader title="Binny's Jewellery "/>
-      <View><Text>Serch data</Text></View>
+       
+       <TextInput placeholder='Search '  style={styles.input}/>
+
+
       <FlatList 
        data={data}
        renderItem={renderTodoItem}
@@ -62,6 +65,14 @@ const styles = StyleSheet.create({
     color:'#888',
     width:'80%',
     textAlign:'center'
+  },
+  input:{
+    borderWidth: 1,
+    padding: 10,
+    borderColor: '#000301',
+    margin: 15,
+    borderRadius: 10,
+    fontSize: 18
   }
 })
 
